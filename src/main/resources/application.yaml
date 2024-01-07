@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: spring-boot-demo
+
+  threads:
+    virtual:
+      enabled: true
+
+springdoc:
+  group-configs:
+    - group: default
+      paths-to-match: /api/**
+
+knife4j:
+  enable: true
+  documents:
+    - group: default
+      name: README
+      locations: classpath:static/doc/*
