@@ -35,4 +35,4 @@ jobs:
       run: docker tag spring-boot-demo:0.0.1 daodaobot/spring-boot-demo:latest
 
     - name: Push the Docker Image
-      run: docker push spring-boot-demo:0.0.1 daodaobot/spring-boot-demo:latest
+      run: docker push daodaobot/spring-boot-demo:latest
