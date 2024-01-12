@@ -2,6 +2,23 @@
 
 ---
 
+## 构建
+
+原生镜像 native image
+
+```shell
+mvn spring-boot:build-image -Pnative
+```
+
+或者 JVM 镜像
+
+```shell
+mvn package
+docker build .
+```
+
+---
+
 ## 部署
 
 ```shell
