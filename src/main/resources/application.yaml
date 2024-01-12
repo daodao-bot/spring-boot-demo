@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: spring-boot-demo
+    name: ${APP_NAME:spring-boot-demo}
 
   threads:
     virtual:
@@ -13,10 +13,3 @@ springdoc:
   group-configs:
     - group: default
       paths-to-match: /api/**
-
-knife4j:
-  enable: true
-  documents:
-    - group: default
-      name: README
-      locations: classpath:static/doc/**
