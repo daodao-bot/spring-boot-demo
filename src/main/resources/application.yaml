@@ -19,4 +19,4 @@ knife4j:
   documents:
     - group: default
       name: README
-      locations: classpath:static/doc/*
+      locations: classpath:static/doc/**

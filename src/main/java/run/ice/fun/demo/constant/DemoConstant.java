@@ -5,6 +5,6 @@ package run.ice.fun.demo.constant;
  */
 public class DemoConstant {
 
-    public static final String DEMO = "DEMO";
+    public static final String DEMO = "demo";
 
 }
