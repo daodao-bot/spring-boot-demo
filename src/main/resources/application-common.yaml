@@ -96,3 +96,14 @@ management:
       endpoint: ${OTLP_LOGGING_ENDPOINT:http://otel-collector:4318/v1/logs}
       export:
         enabled: ${OTLP_LOGGING_ENABLED:false}
+
+logging:
+  file:
+    name: /logs/${spring.application.name}/${HOSTNAME:HOSTNAME}.log
+  logback:
+    rollingpolicy:
+      file-name-pattern: /logs/${spring.application.name}/%d{yyyy-MM-dd}/${HOSTNAME:-${spring.application.name}}.log.%d{yyyy-MM-dd}.%i.gz
+      clean-history-on-start: false
+      max-file-size: 100MB
+      total-size-cap: 10GB
+      max-history: 30
