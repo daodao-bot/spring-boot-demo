@@ -46,7 +46,7 @@ stages:
         name: build_docker
         displayName: 镜像构建
         type: cert
-        certificate: aliyun-cr-ice-run
+        certificate: aliyun-cr-daodao-bot
         tag: daodao-bot/${APPLICATION}:${GITEE_BRANCH}
         dockerfile: Dockerfile
         context: .
