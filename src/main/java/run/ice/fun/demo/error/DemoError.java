@@ -2,7 +2,7 @@ package run.ice.fun.demo.error;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import run.ice.lib.core.error.ErrorEnum;
+import run.ice.fun.demo.constant.ServiceCode;
 
 /**
  * @author DaoDao
@@ -14,7 +14,7 @@ public enum DemoError implements ErrorEnum {
     /**
      * ERROR
      */
-    ERROR("100001", "DEMO ERROR"),
+    ERROR(code("001"), "DEMO ERROR"),
 
     ;
 
@@ -27,5 +27,9 @@ public enum DemoError implements ErrorEnum {
      * 错误信息
      */
     public final String message;
+
+    private static String code(String code) {
+        return ServiceCode.DEMO + code;
+    }
 
 }

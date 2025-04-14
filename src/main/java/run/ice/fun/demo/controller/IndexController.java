@@ -16,7 +16,7 @@ public class IndexController implements IndexApi {
 
     @Override
     public String index() {
-        return appConfig.getApplication();
+        return appConfig.getSlogan();
     }
 
 }

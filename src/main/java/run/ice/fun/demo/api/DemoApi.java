@@ -6,12 +6,12 @@ import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.service.annotation.HttpExchange;
 import org.springframework.web.service.annotation.PostExchange;
+import run.ice.fun.demo.constant.AppConstant;
 import run.ice.fun.demo.constant.DemoConstant;
 import run.ice.fun.demo.model.Cat;
 import run.ice.fun.demo.model.Dog;
-import run.ice.lib.core.constant.AppConstant;
-import run.ice.lib.core.model.Request;
-import run.ice.lib.core.model.Response;
+import run.ice.fun.demo.model.Request;
+import run.ice.fun.demo.model.Response;
 
 /**
  * @author DaoDao

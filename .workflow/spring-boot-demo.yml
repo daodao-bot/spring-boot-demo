@@ -1,0 +1,59 @@
+version: '1.0'
+name: spring-boot-demo
+displayName: spring-boot-demo
+triggers:
+  trigger: auto
+  push:
+    tags:
+      prefix:
+        - t-
+    paths:
+      include:
+        - ^.*$
+variables:
+  APPLICATION: spring-boot-demo
+stages:
+  - name: compile
+    displayName: 编译
+    strategy: naturally
+    trigger: auto
+    executor: []
+    steps:
+      - step: build@maven
+        name: build_maven
+        displayName: Maven 构建
+        jdkVersion: '21'
+        mavenVersion: 3.9.6
+        commands:
+          - mvn clean package -Dmaven.test.skip=true -U -e -X -B -f pom.xml
+        artifacts:
+          - name: BUILD_ARTIFACT
+            path:
+              - target
+        settings: []
+        caches:
+          - ~/.m2
+        notify: []
+        strategy:
+          retry: '0'
+  - name: build
+    displayName: 构建
+    strategy: naturally
+    trigger: auto
+    executor: []
+    steps:
+      - step: build@docker
+        name: build_docker
+        displayName: 镜像构建
+        type: cert
+        certificate: aliyun-cr-ice-run
+        tag: daodao-bot/${APPLICATION}:${GITEE_BRANCH}
+        dockerfile: Dockerfile
+        context: .
+        artifacts:
+          - ${BUILD_ARTIFACT}
+        isCache: false
+        parameter: {}
+        notify: []
+        strategy:
+          retry: '0'

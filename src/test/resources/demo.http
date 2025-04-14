@@ -1,0 +1,9 @@
+POST /api/demo
+HOST: localhost:8080
+Content-Type: application/json
+
+{
+  "param": {
+    "name": "喵喵"
+  }
+}

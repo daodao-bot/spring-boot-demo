@@ -3,6 +3,9 @@ package run.ice.fun.demo;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import run.ice.fun.demo.constant.AppConstant;
+import run.ice.fun.demo.model.Request;
+import run.ice.fun.demo.model.Response;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.AfterEach;
@@ -18,9 +21,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import run.ice.lib.core.constant.AppConstant;
-import run.ice.lib.core.model.Request;
-import run.ice.lib.core.model.Response;
 
 import java.nio.charset.Charset;
 
@@ -36,7 +36,6 @@ import java.nio.charset.Charset;
 public class DemoApplicationTest {
 
     private String uri;
-
     private HttpHeaders httpHeaders;
 
     @Resource

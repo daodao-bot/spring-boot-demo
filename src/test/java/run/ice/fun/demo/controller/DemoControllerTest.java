@@ -6,11 +6,11 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import run.ice.fun.demo.DemoApplicationTest;
 import run.ice.fun.demo.constant.DemoConstant;
+import run.ice.fun.demo.error.AppError;
 import run.ice.fun.demo.model.Cat;
 import run.ice.fun.demo.model.Dog;
-import run.ice.lib.core.error.AppError;
-import run.ice.lib.core.model.Request;
-import run.ice.lib.core.model.Response;
+import run.ice.fun.demo.model.Request;
+import run.ice.fun.demo.model.Response;
 
 @Slf4j
 class DemoControllerTest extends DemoApplicationTest {
