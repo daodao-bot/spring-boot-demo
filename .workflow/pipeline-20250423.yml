@@ -1,0 +1,32 @@
+version: '1.0'
+name: pipeline-20250423
+displayName: pipeline-20250423
+triggers:
+  trigger: auto
+  push:
+    branches:
+      prefix:
+        - ''
+stages:
+  - name: stage-68416c53
+    displayName: 未命名
+    strategy: naturally
+    trigger: auto
+    executor: []
+    steps:
+      - step: shell@agent
+        name: execute_shell
+        displayName: Shell 脚本执行
+        hostGroupID:
+          ID: test-1
+          hostID:
+            - 5a4c377f-c5b1-4a01-8668-b39c53f0a577
+        script:
+          - '# 请在此输入您想执行的脚本'
+          - echo 'Hello Gitee!'
+          - cd ~/app/
+          - ./x.sh
+          - ''
+        notify: []
+        strategy:
+          retry: '0'
