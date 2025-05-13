@@ -12,6 +12,7 @@ triggers:
         - ^.*$
 variables:
   APPLICATION: spring-boot-demo
+  REGISTRY_NAMESPACE: daodao-bot
 stages:
   - name: scan
     displayName: 扫描
@@ -57,10 +58,25 @@ stages:
     steps:
       - step: build@docker
         name: build_docker
+        displayName: 构建镜像
+        type: cert
+        certificate: aliyun-cr-daodao-bot
+        tag: ${REGISTRY_NAMESPACE}/${APPLICATION}:${GITEE_BRANCH}
+        dockerfile: Dockerfile
+        context: .
+        artifacts:
+          - ${BUILD_ARTIFACT}
+        isCache: false
+        parameter: {}
+        notify: []
+        strategy:
+          retry: '0'
+      - step: build@docker
+        name: docker_build
         displayName: 镜像构建
         type: cert
         certificate: aliyun-cr-daodao-bot
-        tag: daodao-bot/${APPLICATION}:${GITEE_BRANCH}
+        tag: ${REGISTRY_NAMESPACE}/${APPLICATION}:latest
         dockerfile: Dockerfile
         context: .
         artifacts:
