@@ -22,7 +22,7 @@ stages:
     steps:
       - step: sc@opensca
         name: open_sca
-        displayName: OpenSCA 开源组件检测
+        displayName: OpenSCA 检测
         detectPath: ./
         notify: []
         strategy:
@@ -58,7 +58,7 @@ stages:
     steps:
       - step: build@docker
         name: build_docker
-        displayName: 构建镜像
+        displayName: Docker 构建
         type: cert
         certificate: aliyun-cr-daodao-bot
         tag: ${REGISTRY_NAMESPACE}/${APPLICATION}:${GITEE_BRANCH}
@@ -73,7 +73,7 @@ stages:
           retry: '0'
       - step: build@docker
         name: docker_build
-        displayName: 镜像构建
+        displayName: Docker 构建
         type: cert
         certificate: aliyun-cr-daodao-bot
         tag: ${REGISTRY_NAMESPACE}/${APPLICATION}:latest
