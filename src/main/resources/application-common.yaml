@@ -83,17 +83,19 @@ management:
       instance: ${HOSTNAME:None}
 
   otlp:
+
     metrics:
       export:
-        url: ${OTLP_METRICS_ENDPOINT:http://otel-collector:4318/v1/metrics}
+        url: ${OTLP_METRICS_ENDPOINT:http://192.168.16.106:30922/v1/metrics}
         enabled: ${OTLP_METRICS_ENABLED:false}
-        step: 5s
+
     tracing:
-      endpoint: ${OTLP_TRACING_ENDPOINT:http://otel-collector:4318/v1/traces}
+      endpoint: ${OTLP_TRACING_ENDPOINT:http://192.168.16.106:30922/v1/traces}
       export:
         enabled: ${OTLP_TRACING_ENABLED:false}
+
     logging:
-      endpoint: ${OTLP_LOGGING_ENDPOINT:http://otel-collector:4318/v1/logs}
+      endpoint: ${OTLP_LOGGING_ENDPOINT:http://192.168.16.106:30922/v1/logs}
       export:
         enabled: ${OTLP_LOGGING_ENABLED:false}
 
@@ -107,3 +109,8 @@ logging:
       max-file-size: 100MB
       total-size-cap: 10GB
       max-history: 30
+
+otel:
+  exporter:
+    otlp:
+      endpoint: ${OTLP_ENDPOINT:http://192.168.16.106:30922/}

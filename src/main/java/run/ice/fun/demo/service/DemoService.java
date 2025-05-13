@@ -1,5 +1,6 @@
 package run.ice.fun.demo.service;
 
+import io.opentelemetry.instrumentation.annotations.WithSpan;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import run.ice.fun.demo.model.Cat;
@@ -12,6 +13,7 @@ import run.ice.fun.demo.model.Dog;
 @Service
 public class DemoService {
 
+    @WithSpan
     public Dog demo(Cat cat) {
         log.info("cat {}", cat);
 
